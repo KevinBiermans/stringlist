@@ -4,12 +4,27 @@ import java.util.Arrays;
 
 /**
  * Each instance of this class represents a sequence of strings.
+ * 
+ * @invar | getElements() != null
+ * @invar | Arrays.stream(getElements()).allMatch(e -> e!= null)
  */
 public class StringList {
 	
+	/**
+	 * @invar | elements != null
+	 * @invar | Arrays.stream(elements).allMatch(e -> e != null)
+	 * 
+	 * @representationObject
+	 */
 	private String[] elements;
 	
-	public String[] getElements() {return elements; }
+	
+	/**
+	 * Returns the elements of this string list in an array
+	 * 
+	 * @creates | result
+	 */
+	public String[] getElements() {return elements.clone(); }
 	
 	public String getConcatenation() {
 		if (elements.length ==0)
